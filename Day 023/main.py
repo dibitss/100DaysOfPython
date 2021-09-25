@@ -2,7 +2,7 @@ from turtle import Screen
 from scoreboard import Scoreboard
 from frortler import Frortler
 from time import sleep
-from car import CarManager
+from car_manager import CarManager
 import random
 
 screen = Screen()
@@ -11,11 +11,11 @@ screen.tracer(0)
 screen.title("Frortler")
 
 scoreboard = Scoreboard()
-player = Frortler()
+frortler = Frortler()
 car_manager = CarManager()
 
 screen.listen()
-screen.onkey(key="Up", fun=player.go_up)
+screen.onkey(key="Up", fun=frortler.go_up)
 
 squashed = False
 while not squashed:
@@ -26,14 +26,14 @@ while not squashed:
     car_manager.move()
     
     for car in car_manager.cars:
-        if player.distance(car) < 20:
+        if frortler.distance(car) < 20:
             scoreboard.game_over()
             squashed = True
             screen.update()
 
-    if player.ycor() > 280:
-        player.go_to_start()
+    if frortler.ycor() > 280:
+        frortler.go_to_start()
         scoreboard.level_up()
-        car_manager.increase_speed()
+        car_manager.level_up()
     
 screen.exitonclick()

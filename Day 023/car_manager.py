@@ -31,7 +31,7 @@ class CarManager():
         for car in self.cars:
             car.forward(self.speed)
 
-    def increase_speed(self):
+    def level_up(self):
         self.speed += SPEED_INCREASE
         if self.chance > 1:
             self.chance -= 1
