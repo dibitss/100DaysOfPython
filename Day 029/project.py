@@ -10,8 +10,8 @@ def generate_password():
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
     password_list = [choice(letters) for _ in range(randint(8, 10))]
-    password_list += [choice(symbols)for _ in range(randint(2, 4))]
-    password_list += [choice(numbers)for _ in range(randint(2, 4))]
+    password_list += [choice(symbols) for _ in range(randint(2, 4))]
+    password_list += [choice(numbers) for _ in range(randint(2, 4))]
 
     shuffle(password_list)
     password = "".join(password_list)
